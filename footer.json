@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "data": {
+    "content": [
+      {
+        "type": "Section",
+        "props": {
+          "id": "Section-harbor-footer",
+          "background": "muted",
+          "backgroundImage": "",
+          "className": "border-t border-border",
+          "content": [
+            {
+              "type": "Flex",
+              "props": {
+                "id": "Flex-harbor-footer",
+                "align": "start",
+                "className": "",
+                "direction": "row",
+                "gap": "lg",
+                "items": [
+                  {
+                    "type": "Flex",
+                    "props": {
+                      "id": "Flex-harbor-footer-about",
+                      "align": "start",
+                      "className": "",
+                      "direction": "column",
+                      "gap": "sm",
+                      "items": [
+                        {
+                          "type": "SiteBrand",
+                          "props": {
+                            "id": "SiteBrand-harbor-footer",
+                            "className": "text-lg",
+                            "show": "title"
+                          }
+                        },
+                        {
+                          "type": "ContactDetails",
+                          "props": {
+                            "id": "ContactDetails-harbor-footer",
+                            "address": true,
+                            "className": "text-sm text-muted-foreground",
+                            "email": true,
+                            "layout": "stacked",
+                            "phone": true
+                          }
+                        }
+                      ],
+                      "justify": "start",
+                      "wrap": false
+                    }
+                  },
+                  {
+                    "type": "Menu",
+                    "props": {
+                      "id": "Menu-harbor-footer",
+                      "className": "text-sm",
+                      "menu": "footer",
+                      "orientation": "horizontal"
+                    }
+                  }
+                ],
+                "justify": "between",
+                "wrap": true
+              }
+            }
+          ],
+          "padding": "md",
+          "width": "normal"
+        }
+      }
+    ],
+    "root": {
+      "props": {}
+    }
+  }
+}

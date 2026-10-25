@@ -1,0 +1,32 @@
+# Publishes a release to npm when a GitHub release is published, with npm's
+# provenance, so Goodfellow's Themes screen can say which repository it was
+# built from. npm's trusted publishing lets this workflow publish without a
+# token: set it up once on npmjs.com, under the package's Settings.
+name: Publish
+
+on:
+  release:
+    types: [published]
+
+permissions: {}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          check-latest: true
+          registry-url: https://registry.npmjs.org
+      - run: npm install --no-audit --no-fund
+      - run: npm test
+      - name: Check the release's tag is the package's version
+        run: test "v$(node -p 'require("./package.json").version')" = "$GITHUB_REF_NAME"
+      - run: npm publish --provenance --access public

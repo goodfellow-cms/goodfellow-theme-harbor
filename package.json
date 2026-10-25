@@ -1,0 +1,30 @@
+{
+  "name": "goodfellow-theme-harbor",
+  "version": "1.0.0",
+  "description": "Deep harbor blue on warm sand: a Goodfellow theme with a serif for headings, rounded cards and pill-shaped buttons, in light and dark.",
+  "keywords": ["goodfellow-theme", "goodfellow", "theme"],
+  "license": "MIT",
+  "author": "Goodfellow contributors",
+  "homepage": "https://github.com/goodfellow-cms/goodfellow-theme-harbor#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goodfellow-cms/goodfellow-theme-harbor.git"
+  },
+  "bugs": "https://github.com/goodfellow-cms/goodfellow-theme-harbor/issues",
+  "type": "module",
+  "files": ["goodfellow-theme.json", "theme.css", "header.json", "footer.json", "preview.png"],
+  "scripts": {
+    "test": "node --test"
+  },
+  "peerDependencies": {
+    "@goodfellow-cms/core": ">=0.6.0 <1.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@goodfellow-cms/core": { "optional": true }
+  },
+  "devDependencies": {
+    "@goodfellow-cms/blocks": "^0.6.0",
+    "@goodfellow-cms/core": "^0.6.0",
+    "@goodfellow-cms/react": "^0.6.0"
+  }
+}

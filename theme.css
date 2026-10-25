@@ -1,0 +1,46 @@
+/*
+ * Harbor's CSS: the few touches its settings can't make. It uses the site's
+ * colors and fonts through their variables, so it follows whatever an owner
+ * changes them to, light and dark.
+ */
+
+/* The header stays in view as visitors scroll. */
+.gf-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--primary) 22%, transparent);
+}
+
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Links in written text: a fine underline that doesn't touch the letters. */
+.gf-main :where(p, li) a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.gf-main blockquote {
+  border-left: 3px solid var(--primary);
+  padding-left: 1rem;
+  font-family: var(--gf-font-heading);
+  font-style: italic;
+}
+
+.gf-main hr {
+  border: 0;
+  height: 1px;
+  margin-block: 2.5rem;
+  background: var(--border);
+}
+
+/* Inline code takes its tint from the text around it, so it reads on any section's background. */
+.gf-prose :not(pre) > code {
+  background: color-mix(in oklab, currentColor 12%, transparent);
+}

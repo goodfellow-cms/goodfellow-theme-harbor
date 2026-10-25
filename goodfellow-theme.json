@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "title": "Harbor",
+  "description": "Deep harbor blue on warm sand, with a serif for headings, rounded cards and pill-shaped buttons. Calm and easy to read, in light and dark.",
+  "theme": {
+    "colors": {
+      "background": "#fbf8f3",
+      "foreground": "#1c2b39",
+      "primary": "#1f4e6b",
+      "primaryForeground": "#ffffff",
+      "secondary": "#e6edf2",
+      "secondaryForeground": "#1c2b39",
+      "muted": "#f2ede4",
+      "mutedForeground": "#55606d",
+      "accent": "#f6e2d6",
+      "accentForeground": "#7a2e1a",
+      "border": "#e3dacd"
+    },
+    "darkColors": {
+      "background": "#0f1a24",
+      "foreground": "#e8edf1",
+      "primary": "#86b8d6",
+      "primaryForeground": "#0f1a24",
+      "secondary": "#1c2a37",
+      "secondaryForeground": "#e8edf1",
+      "muted": "#172430",
+      "mutedForeground": "#a6b3bf",
+      "accent": "#3b2a23",
+      "accentForeground": "#f4cdb9",
+      "border": "#2a3947"
+    },
+    "fonts": {
+      "heading": "Newsreader",
+      "headingCategory": "serif",
+      "body": "Source Sans 3",
+      "bodyCategory": "sans-serif"
+    },
+    "radius": "0.625rem",
+    "code": {
+      "light": "github-light",
+      "dark": "github-dark",
+      "background": "site"
+    },
+    "parts": {
+      "gf-heading": "text-balance tracking-tight",
+      "gf-text": "text-pretty",
+      "gf-button": "rounded-full px-6 font-semibold tracking-wide",
+      "gf-menu-link": "rounded-full",
+      "gf-site-brand-name": "tracking-tight",
+      "gf-card": "rounded-xl shadow-sm transition-shadow hover:shadow-md",
+      "gf-card-title": "font-heading text-xl",
+      "gf-card-date": "text-xs font-semibold uppercase tracking-wider",
+      "gf-list-item-date": "text-xs font-semibold uppercase tracking-wider",
+      "gf-collection-list-heading": "tracking-tight",
+      "gf-calendar-day-heading": "tracking-tight",
+      "gf-page-link": "rounded-full",
+      "gf-entry-pager-link": "rounded-xl",
+      "gf-form-input": "rounded-lg",
+      "gf-form-submit": "rounded-full px-6 font-semibold",
+      "gf-search-input": "rounded-full"
+    }
+  },
+  "css": "theme.css",
+  "header": "header.json",
+  "footer": "footer.json",
+  "image": "preview.png"
+}
