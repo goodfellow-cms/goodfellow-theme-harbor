@@ -75,9 +75,11 @@ A picture of a site with the theme, about 1280 by 800 pixels. Harbor's is the ho
 ## Checking it
 
 ```sh
-npm install
+npm ci
 npm test
 ```
+
+`package-lock.json` names the Goodfellow release the test checks against, so every run checks the same one; Dependabot moves it on to newer ones in `devDependencies`' ranges, and `npm update` does the same by hand.
 
 The test reads the theme with Goodfellow's own code and checks what installing it would: that `goodfellow-theme.json`, the header and the footer are valid, that the header and footer use only the blocks above, that the theme loads nothing from other sites, that its colors are easy to read in light and dark (as the admin panel's contrast check measures them), and that every part it gives classes is one a built-in block has. GitHub Actions runs it on every change ([`check.yml`](.github/workflows/check.yml)).
 
