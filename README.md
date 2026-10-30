@@ -87,7 +87,9 @@ To see it on a site before publishing, apply it as installing it would with `pla
 
 ## Publishing a version
 
-1. Change `version` in `package.json`. Every change needs a new version: npm never lets one be published twice.
+Every change that reaches the published theme needs a changeset: run `npx changeset`, choose patch, minor or major, and describe the change for the theme's users. It writes a file in `.changeset/`, which goes in the same pull request.
+
+1. Run `npm run release:version`, which turns the changesets into a new `version` in `package.json` and an entry in `CHANGELOG.md`. Commit what it changes. Every release needs a new version: npm never lets one be published twice.
 2. Publish a GitHub release whose tag is `v` and the version, such as `v1.1.0`.
 3. [`publish.yml`](.github/workflows/publish.yml) checks the theme again and stages it on npm with [provenance](https://docs.npmjs.com/generating-provenance-statements), which the Themes screen shows owners: which repository and commit it was built from. A staged version isn't published: nobody can install it until a maintainer approves it. The run's page lists the digest of the file it staged.
 4. Approve it from your computer, with npm 11.15 or later (`npm install --global npm@11`), signed in to npm (`npm login`): `npm stage list goodfellow-theme-harbor` lists what's waiting, with each one's id and digest. Compare the digest with the run's, then run `npm stage approve <id>`, which asks for your two-factor code and publishes it. To throw a staged version away instead, run `npm stage reject <id>`.
