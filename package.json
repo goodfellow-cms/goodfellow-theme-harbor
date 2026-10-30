@@ -14,7 +14,9 @@
   "type": "module",
   "files": ["goodfellow-theme.json", "theme.css", "header.json", "footer.json", "preview.png"],
   "scripts": {
-    "test": "node --test"
+    "test": "node --test",
+    "changeset": "changeset",
+    "release:version": "changeset version"
   },
   "peerDependencies": {
     "@goodfellow-cms/core": ">=0.6.0 <1.0.0"
@@ -23,6 +25,7 @@
     "@goodfellow-cms/core": { "optional": true }
   },
   "devDependencies": {
+    "@changesets/cli": "3.0.3",
     "@goodfellow-cms/blocks": "^0.6.0",
     "@goodfellow-cms/core": "^0.6.0",
     "@goodfellow-cms/react": "^0.6.0"
