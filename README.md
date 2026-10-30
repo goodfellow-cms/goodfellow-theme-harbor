@@ -89,9 +89,16 @@ To see it on a site before publishing, apply it as installing it would with `pla
 
 1. Change `version` in `package.json`. Every change needs a new version: npm never lets one be published twice.
 2. Publish a GitHub release whose tag is `v` and the version, such as `v1.1.0`.
-3. [`publish.yml`](.github/workflows/publish.yml) checks the theme again and publishes it to npm with [provenance](https://docs.npmjs.com/generating-provenance-statements), which tells owners which repository it was built from.
+3. [`publish.yml`](.github/workflows/publish.yml) checks the theme again and stages it on npm with [provenance](https://docs.npmjs.com/generating-provenance-statements), which the Themes screen shows owners: which repository and commit it was built from. A staged version isn't published: nobody can install it until a maintainer approves it. The run's page lists the digest of the file it staged.
+4. Approve it from your computer, with npm 11.15 or later (`npm install --global npm@11`), signed in to npm (`npm login`): `npm stage list goodfellow-theme-harbor` lists what's waiting, with each one's id and digest. Compare the digest with the run's, then run `npm stage approve <id>`, which asks for your two-factor code and publishes it. To throw a staged version away instead, run `npm stage reject <id>`.
 
-It publishes through npm's [trusted publishing](https://docs.npmjs.com/trusted-publishers), so the repository holds no npm token. A new package's first version has to be published from a computer (`npm publish --access public`); then set its trusted publisher on npmjs.com, in the package's settings, to this repository and `publish.yml`.
+The workflow signs in to npm with [trusted publishing](https://docs.npmjs.com/trusted-publishers), so the repository holds no npm token, and it may only stage versions, so nothing reaches npm without a maintainer's two-factor authentication. Set it up once, with npm 11.15 or later:
+
+```sh
+npm trust github goodfellow-theme-harbor --file publish.yml --repo goodfellow-cms/goodfellow-theme-harbor --allow-stage-publish --yes
+```
+
+Without `--allow-publish`, npm refuses `npm publish` from the workflow. A package has one trusted publisher: if it already has one that may publish, find its id with `npm trust list goodfellow-theme-harbor` and remove it first with `npm trust revoke --id <id> goodfellow-theme-harbor`. npm drops a trusted publisher that hasn't staged anything within 2 days of being added, so add it shortly before a release. Then choose **Require two-factor authentication and disallow tokens** under the package's **Settings → Publishing access**. A new package's first version has to be published from a computer (`npm publish --access public`), since trusted publishing is set up in a package's settings.
 
 The Themes screen offers a version once it's 3 days old, since most harmful versions of npm packages are found and removed by then.
 
