@@ -24,6 +24,9 @@
   "peerDependenciesMeta": {
     "@goodfellow-cms/core": { "optional": true }
   },
+  "overrides": {
+    "@puckeditor/core": { "happy-dom": "^21.0.4" }
+  },
   "devDependencies": {
     "@changesets/cli": "3.0.3",
     "@goodfellow-cms/blocks": "^0.6.0",
