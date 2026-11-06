@@ -30,8 +30,8 @@
   },
   "devDependencies": {
     "@changesets/cli": "3.0.3",
-    "@goodfellow-cms/blocks": "^0.6.0",
-    "@goodfellow-cms/core": "^0.6.0",
-    "@goodfellow-cms/react": "^0.6.0"
+    "@goodfellow-cms/blocks": "^0.10.1",
+    "@goodfellow-cms/core": "^0.10.1",
+    "@goodfellow-cms/react": "^0.10.1"
   }
 }
